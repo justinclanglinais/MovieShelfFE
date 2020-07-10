@@ -32,24 +32,27 @@ class App extends Component {
   }
   
   handleFetch = () => {
-    fetch(`${localAPI}shelves/1`).then(res=>res.json()).then(data=>{
-      this.setState({myShelf: data.movies})
+    fetch(`${localAPI}shelves/1/`).then(res=>res.json()).then(data=>{
+      this.setState({myShelf: data.shelf.movies})
     })
   }
 
-  fetchMovies = () => {
-    fetch (`${localAPI}movies`).then(r=>r.json()).then(j=>{
-      if (this.state.filter !== 'all') {
-        j.filter(movie => {
-          // use .includes for multiple genres
-          return movie.genre === this.state.filter
-          })
-        } else {
-          this.setState({ movies : j })
-        }
-      }
-    )
-  }
+  // filterMovies = () => {
+  //   fetch (`${localAPI}shelves/1/`).then(r=>r.json()).then(j=>{
+  //     if (this.state.filter !== 'all') {
+  //       this.setState({movies : 
+  //         j.shelf.movies.filter(movie => {
+  //         // use .includes for multiple genres
+  //         movie.genre.includes(this.state.filter) 
+  //         // return movie.genre === this.state.filter
+  //         })
+  //       })
+  //       } else {
+  //         this.setState({ movies : j.shelf.movies })
+  //       }
+  //     }
+  //   )
+  // }
 
   addToShelf = (movie) => {
     if(!this.state.myShelf.includes(movie)){
@@ -94,7 +97,27 @@ class App extends Component {
     })
   }
 
-  
+  // DELETE FUNCTIONALITY REQUIRES ROUTE TO GET TO MOVIE VIA ID
+  // deleteFromBackendShelf = () => {
+  //   fetch(`${localAPI}shelves/1/`,{
+  //     method: "DELETE",
+  //     headers: {
+  //       "Content-Type" : "application/json",
+  //       Accept : "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         movie : {
+  //           title: movie.Title,
+  //           year: movie.Year,
+  //           runtime: "72 min",
+  //           poster: movie.Poster,
+  //           genre: "Animation, Action, Adventure, Sci-Fi",
+  //           imdb_id: movie.imdbID
+  //         }
+  //       })
+  //     }
+  //   )
+  // }
 
   search = (e) => {
     if (e.key === "Enter"){
@@ -125,7 +148,7 @@ class App extends Component {
     return (
       <div className="App">
          <div>
-        {/* <NavBar changeGenre={this.changeGenre} fetchMovies={this.fetchMovies} /> */}
+        <NavBar changeGenre={this.changeGenre} filterMovies={this.filterMovies} />
 
       </div>
       <header>
