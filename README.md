@@ -1,68 +1,88 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Flatiron School: Seattle 0420 Cohort
+# MovieShelf: Module 4 Project
 
-## Available Scripts
+![Welcome](README_assets/home_page_mvs.gif)
 
-In the project directory, you can run:
+### Description: 
+This project was designed to enable a user to create their own movie library by accessing a massive database of movies, and deleting/modifying information as they please. Key features are as follows:
 
-### `yarn start`
+* Routing with React Router
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Pages](README_assets/pages_mvs.gif)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+* Search movies from OMDB and add them to your shelf
 
-### `yarn test`
+![Search Movies](README_assets/add_mvs.gif)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Handling of invalid search/can't find movie
 
-### `yarn build`
+![Search Error](README_assets/error_mvs.gif)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* View Movie Details
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![Details](README_assets/details_mvs.gif)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Filter movies on your shelf by genre
 
-### `yarn eject`
+![Filter Genre](README_assets/filter_mvs.gif)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* See the default movie poster
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Default](README_assets/default_mvs.gif)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* Edit a movie's poster
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![Edit Form](README_assets/edit_mvs.gif)
 
-## Learn More
+* Delete a movie
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Delete](README_assets/delete_mvs.gif)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+The backend of the application leverages Ruby on Rails API functionality to receive and send AJAX requests in a JSON formate. The interactive frontend is build on ReactJS, HTML, and CSS.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Team:
+* Colton Kaiser
+* Justin Langlinais
+* Joshua Mclean
+* Trevor Low
 
-### Analyzing the Bundle Size
+### Dependencies:
+* Node Package Manager (NPM)
+* Developed on Google Chrome (80.0.3987.149)
+* ReactJS
+* React Bootstrap
+* React Router
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Server Dependencies
+Refer to the backend repo at https://github.com/jmclean-coder/MovieShelfBE for instructions to set up the backend server and PostGreSQL
 
-### Making a Progressive Web App
+### Installation:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Download this entire git repository to your computer and place in your desired install directory. 
 
-### Advanced Configuration
+If you don't have the above dependencies:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+First, if you do not currently have Node Package Manager (NPM), follow their guide here: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm.
 
-### Deployment
+Next, to install ReactJS, React Bootstrap, and React Router, in a terminal navigate to the directory in which you installed this repo, then execute `npm install react react-dom --save`. Then, run `npm install webpack webpack-dev-server webpack-cli --save`, `npm install react-bootstrap bootstrap`, and `npm install --save react-router-dom`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Finally, execute ```npm install``` to install all other required node packages.
 
-### `yarn build` fails to minify
+### External API Setup - Frontend
+The movie search functionality requires the setup of the Open Movie Database API with your own personal key. Visit ```http://www.omdbapi.com/``` to obtain a key.
+Once you have your key, navigate to the root directory of the project (MOVIESHELF-FRONTEND) and create a ```.env``` file. Inside this file on the first line type: ```REACT_APP_API_KEY=yourapikey```. This file will automatically be added to the .gitignore.
+In App.js on line 10, notice that the URL is being passed the api key via the environment variable, instead of it be hard-coded in. To maintain security, be sure to use the environment varible to refer to your key anywhere you use it.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Running:
+This project was designed as a proof of concept so it requires hosting locally. To start hosting the local server navigate to the directory in which this repo was installed. Then, via a terminal interface execute ```npm start```. If you started your rails server before this you will be prompted to enter Y/N to use an unoccupied port. Enter `y` and after a moment your browser should automatically load the application. At this point the application will load and all functionality should be available.
+
+### License
+Copyright 2020 Colton Kaiser, Joshua Mclean, Justin Langlinais, Trevor Low
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

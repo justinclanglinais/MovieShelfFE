@@ -1,22 +1,49 @@
-import React, { Component, Fragment } from 'react'
+import React from "react";
+import { Button, Container } from "react-bootstrap";
+import Card from "react-bootstrap/Card";
 
-class Result extends Component {
-    handleClick = () => {
-        this.props.addToShelf(this.props.result)
-    }
-    render() {
-        // console.log(this.props.result)
-        return (
-            <Fragment>
-                <div className="result">
-                    <h4>{this.props.result.Title} {this.props.result.Year}</h4>
-                    <img height={300} src={this.props.result.Poster} alt="Image Not Found"/>
-                    <br></br>
-                    <button className="add" onClick={this.handleClick}>Add To Shelf</button>
-                </div>
-            </Fragment>
-        )
-    }
+const handleImageError = (e) => {
+  e.target.src =
+    "https://i.pinimg.com/originals/be/58/f5/be58f582e749c1f722df0f38be5e0995.jpg";
+};
+
+function Result(props) {
+  const handleClick = () => {
+    console.log(props.result);
+    props.fetchDetails(props.result).then((detailedMovie) => {
+      console.log(detailedMovie);
+      props.postToMovies(detailedMovie);
+    });
+  };
+
+  // console.log(props.result)
+  return (
+    <div className="mx-auto">
+      <Container>
+        <Card className="movie-card">
+          <Card.Body>
+            <Card.Title
+              as="h3"
+              className="text-center"
+              style={{ color: "white" }}
+            >
+              {props.result.Title}
+            </Card.Title>
+          </Card.Body>
+          <Card.Img
+            variant="bottom"
+            src={props.result.Poster}
+            onError={handleImageError}
+            style={{ maxHeight: 410 }}
+          ></Card.Img>
+          <br></br>
+          <Button variant="success" onClick={handleClick}>
+            Add To Shelf
+          </Button>
+        </Card>
+      </Container>
+    </div>
+  );
 }
 
-export default Result
+export default Result;

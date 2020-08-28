@@ -1,51 +1,91 @@
-/* * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+body #root {
+	font-family: 'Montserrat', sans-serif;
+	padding-top: 4.4em;
 }
 
-body {
-	font-family: 'Times New Roman', Times, serif;
-	background-color: black;
+
+.App{
+	background-color: #1E1C1C;
+	display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
-header {
-	padding: 50px 15px 0px;
-}
 
-header h1 {
-	color: rgb(202, 202, 9);
-	font-size: 56px;
-	font-weight: 550;
-	text-align: center;
-}
-main {
-	width: 100%;
-	max-width: 1600px;
-	margin: 0 auto;
-}
 
 section {
 	padding: 15px;
 }
 
-.search {
-	display: block;
-	width: 100%;
-	padding: 10px;
-
-	border: outset;
-
-	background-color: #EEE;
-	border-radius: 10px;
-
-	color: black;
-	font-size: 24px;
-	font-weight: 350;
-
-	transition: 0.2s ease-out;
+.card.movie-card {
+	max-width: 300px ;
+	box-shadow: 0 -2px 30px 0 rgba(0, 0, 0, 1);
+	background-color: #2d2d2d;
+	margin-bottom: 20px;
 }
 
-.search:focus {
-	box-shadow: 4px 4px 7px 5px rgb(10, 43, 94);
-} */
+.page-header-box{
+    height: 9em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	background-color: #FF4545;
+	border-radius: 0em 0em 2em 2em;
+}
+
+.page-header{
+	margin: 0;
+	color: white;
+	font-size: 2em;
+	text-align: center;
+
+}
+
+.footer-text{
+	margin: 0;
+	color: white;
+	font-size: 1em;
+	text-align: center;
+}
+
+#site-footer{
+	/* margin-top: -25em; */
+	height: 5em;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	background-color: #FF4545;
+	width: 100%;
+	border-radius: 2em 2em 0em 0em ;
+	
+}
+.image-blur{
+	margin: 0 auto;
+    margin-top: 0%;
+    background-image: url(https://techcrunch.com/wp-content/uploads/2018/09/GettyImages-104187321.jpg);
+    background-size: cover;
+    box-shadow: 0 0 30px 30px #1E1C1C inset;
+    width: 71%;
+    height: 777px;
+}
+
+.content-wrapper {
+	height: 100%
+
+  }
+
+  .Site-content {
+	flex: 1;
+  }
+
+  a {
+    color: white;
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+#filter-genre {
+	color: rgb(255, 69, 69);
+	padding-top: 12px;
+	padding-left: 20px;
+}
